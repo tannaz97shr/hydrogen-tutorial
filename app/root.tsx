@@ -1,22 +1,23 @@
 import {Analytics, getShopAnalytics, useNonce} from '@shopify/hydrogen';
 import {type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {
-  Outlet,
-  useRouteError,
   isRouteErrorResponse,
-  type ShouldRevalidateFunction,
   Links,
   Meta,
+  Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
   useRouteLoaderData,
+  type ShouldRevalidateFunction,
 } from 'react-router';
 import favicon from '~/assets/favicon.svg';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
-import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
-import tailwindCss from './styles/tailwind.css?url';
+import resetStyles from '~/styles/reset.css?url';
 import {PageLayout} from './components/PageLayout';
+import fontStyles from './styles/fonts.css?url';
+import tailwindCss from './styles/tailwind.css?url';
 
 export type RootLoader = typeof loader;
 
@@ -54,6 +55,10 @@ export const shouldRevalidate: ShouldRevalidateFunction = ({
  */
 export function links() {
   return [
+    {rel: 'stylesheet', href: tailwindCss},
+    {rel: 'stylesheet', href: resetStyles},
+    {rel: 'stylesheet', href: appStyles},
+    {rel: 'stylesheet', href: fontStyles},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',
