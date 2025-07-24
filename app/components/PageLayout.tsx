@@ -1,5 +1,5 @@
-import {Await, Link} from 'react-router';
 import {Suspense, useId} from 'react';
+import {Await, Link} from 'react-router';
 import type {
   CartApiQueryFragment,
   FooterQuery,
@@ -8,12 +8,12 @@ import type {
 import {Aside} from '~/components/Aside';
 import {Footer} from '~/components/Footer';
 import {Header, HeaderMenu} from '~/components/Header';
-import {CartMain} from '~/components/CartMain';
 import {
   SEARCH_ENDPOINT,
   SearchFormPredictive,
 } from '~/components/SearchFormPredictive';
 import {SearchResultsPredictive} from '~/components/SearchResultsPredictive';
+import {CartMain} from './cart/CartMain';
 
 interface PageLayoutProps {
   cart: Promise<CartApiQueryFragment | null>;

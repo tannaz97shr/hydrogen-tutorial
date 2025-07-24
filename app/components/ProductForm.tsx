@@ -1,12 +1,12 @@
-import {Link, useNavigate} from 'react-router';
 import {type MappedProductOptions} from '@shopify/hydrogen';
 import type {
   Maybe,
   ProductOptionValueSwatch,
 } from '@shopify/hydrogen/storefront-api-types';
+import {Link, useNavigate} from 'react-router';
+import type {ProductFragment} from 'storefrontapi.generated';
 import {AddToCartButton} from './AddToCartButton';
 import {useAside} from './Aside';
-import type {ProductFragment} from 'storefrontapi.generated';
 
 export function ProductForm({
   productOptions,
@@ -102,8 +102,8 @@ export function ProductForm({
         );
       })}
       <AddToCartButton
-        disabled={!selectedVariant || !selectedVariant.availableForSale}
-        onClick={() => {
+        disabled={!selectedVariant}
+        afterAddToCart={() => {
           open('cart');
         }}
         lines={
